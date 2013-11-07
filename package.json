@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "QUnit plugin for running module setup and teardown once",
   "main": "qunit-once.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "pre-git": "0.0.11",
     "grunt-complexity": "~0.1.3",
@@ -16,7 +15,8 @@
     "grunt-deps-ok": "~0.1.2",
     "grunt-node-qunit": "~2.0.2",
     "time-grunt": "~0.1.1",
-    "grunt-npm2bower-sync": "0.0.2"
+    "grunt-npm2bower-sync": "0.0.2",
+    "grunt-nice-package": "~0.1.5"
   },
   "scripts": {
     "test": "grunt"

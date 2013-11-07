@@ -26,12 +26,17 @@ module.exports = function (grunt) {
         code: './test/tests.js',
         tests: './test/tests.js'
       }
+    },
+
+    'nice-package': {
+      all: {}
     }
   });
 
   var plugins = module.require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('default', ['deps-ok', 'sync',
-    'jshint', 'node-qunit', 'qunit', 'complexity']);
+  grunt.registerTask('test', ['node-qunit', 'qunit']);
+  grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync',
+    'jshint', 'complexity', 'test']);
 };
