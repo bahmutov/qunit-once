@@ -1,11 +1,9 @@
 {
   "name": "qunit-once",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "QUnit plugin for running module setup and teardown once",
   "main": "qunit-once.js",
   "dependencies": {
-    "allong.es": "~0.14.0",
-    "lodash": "~2.2.1"
   },
   "devDependencies": {
     "pre-git": "0.0.11",
@@ -17,7 +15,6 @@
     "grunt-contrib-qunit": "~0.2.2",
     "grunt-deps-ok": "~0.1.2",
     "grunt-node-qunit": "~2.0.2",
-    "q": "~0.9.7",
     "time-grunt": "~0.1.1",
     "grunt-npm2bower-sync": "0.0.2"
   },
@@ -25,7 +22,11 @@
     "test": "grunt"
   },
   "pre-commit": "grunt",
-  "pre-push": "grunt qunit",
+  "pre-push": [
+    "rm -rf node_modules",
+    "npm install",
+    "grunt"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/bahmutov/qunit-once.git"
