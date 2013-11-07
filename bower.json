@@ -1,0 +1,29 @@
+{
+  "name": "qunit-once",
+  "main": "qunit-once.js",
+  "version": "0.0.2",
+  "authors": [
+    "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
+  ],
+  "description": "QUnit plugin for running module setup and teardown once",
+  "keywords": [
+    "qunit",
+    "promises",
+    "test",
+    "assert"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bahmutov/qunit-once",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "Gruntfile.js",
+    "package.json",
+    "complexity.json",
+    "jshint.json"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
+}
