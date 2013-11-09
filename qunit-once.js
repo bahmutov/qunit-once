@@ -21,6 +21,8 @@
           config.setup : null;
 
         config.setup = function () {
+          console.log('config.setup ');
+
           if (!_setupOnceRan) {
             config.setupOnce();
             _setupOnceRan = true;
@@ -36,7 +38,13 @@
     (function addTeardownOnce() {
 
       function isLastTestInModule() {
-        return QUnit.config.queue.length === 1;
+        console.log('is last test in module?');
+        if (QUnit.config && Array.isArray(QUnit.config.queue)) {
+          return QUnit.config.queue.length === 1;
+        } else {
+          // we cannot determine if the test is the last one in this module
+          return false;
+        }
       }
 
       if (typeof config !== 'object') {
@@ -48,7 +56,10 @@
           config.teardown : null;
 
         config.teardown = function () {
+          console.log('config.teardown');
+
           if (_teardown) {
+            console.log('calling teardown');
             _teardown.call(config);
           }
 
