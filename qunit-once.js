@@ -1,4 +1,10 @@
-(function (QUnit) {
+/* jshint -W117:false */
+(function (QUnit, env) {
+  if (env.__quit_once_initialized) {
+    return;
+  }
+  env.__quit_once_initialized = true;
+
   if (typeof QUnit !== 'object') {
     throw new Error('undefined QUnit object');
   }
@@ -21,8 +27,6 @@
           config.setup : null;
 
         config.setup = function () {
-          console.log('config.setup ');
-
           if (!_setupOnceRan) {
             config.setupOnce();
             _setupOnceRan = true;
@@ -38,7 +42,6 @@
     (function addTeardownOnce() {
 
       function isLastTestInModule() {
-        console.log('is last test in module?');
         if (QUnit.config && Array.isArray(QUnit.config.queue)) {
           return QUnit.config.queue.length === 1;
         } else {
@@ -56,10 +59,7 @@
           config.teardown : null;
 
         config.teardown = function () {
-          console.log('config.teardown');
-
           if (_teardown) {
-            console.log('calling teardown');
             _teardown.call(config);
           }
 
@@ -72,5 +72,5 @@
 
     _module.call(QUnit, name, config);
   };
-}(QUnit));
+}(QUnit, typeof global === 'object' ? global : window));
 
