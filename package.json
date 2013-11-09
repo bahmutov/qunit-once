@@ -1,6 +1,6 @@
 {
   "name": "qunit-once",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "QUnit plugin for running module setup and teardown once",
   "main": "qunit-once.js",
   "dependencies": {},
