@@ -17,10 +17,12 @@
     "time-grunt": "~0.2.0",
     "grunt-npm2bower-sync": "0.0.2",
     "grunt-nice-package": "~0.1.5",
-    "grunt-parallel": "~0.3.1"
+    "grunt-parallel": "~0.3.1",
+    "gt": "~0.8.18"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "gt": "node ./node_modules/gt qunit-once.js test/tests.js --output"
   },
   "pre-commit": "grunt",
   "pre-push": [

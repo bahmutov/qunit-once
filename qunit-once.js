@@ -1,6 +1,12 @@
 (function (QUnit) {
+  if (typeof QUnit !== 'object') {
+    throw new Error('undefined QUnit object');
+  }
 
   var _module = QUnit.module;
+  if (typeof _module !== 'function') {
+    throw new Error('QUnit.module should be a function');
+  }
 
   QUnit.module = function (name, config) {
 
