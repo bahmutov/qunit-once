@@ -15,9 +15,13 @@
   }
 
   QUnit.module = function (name, config) {
+    if (typeof config !== 'object') {
+      return;
+    }
 
     (function addSetupOnce() {
-      if (typeof config !== 'object') {
+      if (Array.isArray(QUnit.supports) &&
+        QUnit.supports.setupOnce) {
         return;
       }
 
@@ -41,6 +45,11 @@
 
     (function addTeardownOnce() {
 
+      if (Array.isArray(QUnit.supports) &&
+        QUnit.supports.teardownOnce) {
+        return;
+      }
+
       function isLastTestInModule() {
         if (QUnit.config && Array.isArray(QUnit.config.queue)) {
           return QUnit.config.queue.length === 1;
@@ -48,10 +57,6 @@
           // we cannot determine if the test is the last one in this module
           return false;
         }
-      }
-
-      if (typeof config !== 'object') {
-        return;
       }
 
       if (typeof config.teardownOnce === 'function') {
