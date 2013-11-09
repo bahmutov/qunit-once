@@ -78,12 +78,16 @@ Or install *qunit-once* via `npm install qunit-once --save-dev` under node.
   });
 ```
 
-### Run under node using node-qunit
+### Run under node using node-qunit or gt
 
 ```sh
 npm install -g qunit
 qunit -d qunit-once.js -c tests.js -t tests.js
 ```
+
+You don't need to include this module when running with
+[gt](https://github.com/bahmutov/gt),
+it already supports setupOnce and teardownOnce methods.
 
 ## Related
 
