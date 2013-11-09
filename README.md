@@ -15,7 +15,12 @@ QUnit plugin that adds **setupOne** and **teardownOnce** to modules
 Available through [bower](http://sindresorhus.com/bower-components/) and
 [npm](https://npmjs.org/package/qunit-once) as **qunit-once**.
 
-## Example
+Tested in the browser by [QUnit](http://qunitjs.com/) and
+under nodejs by [qunit-node](https://github.com/kof/node-qunit).
+Safe to use with [gt](https://github.com/bahmutov/gt),
+which includes *setupOnce* and *teardownOnce* already.
+
+## API
 
 ```javascript
 QUnit.module('Example', {
@@ -34,6 +39,52 @@ QUnit.module('Example', {
 });
 ```
 
+## Use
+
+### install
+
+Include *qunit-once.js* after *qunit.js* in HTML
+
+```html
+<script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+<script src="qunit-once.js"></script>
+<script src="tests.js"></script>
+```
+
+Or install *qunit-once* via `npm install qunit-once --save-dev` under node.
+
+### Write unit tests
+
+```javascript
+  // tests.js
+  var counter = 0;
+
+  QUnit.module('Example', {
+    setupOnce: function () {
+      counter = 1;
+    },
+    setup: function () {
+      counter += 1;
+    }
+  });
+
+  QUnit.test('first', function () {
+    QUnit.equal(counter, 2, 'setupOnce followed by setup');
+    counter = 0;
+  });
+
+  QUnit.test('second', function () {
+    QUnit.equal(counter, 1, 'first test followed by setup');
+  });
+```
+
+### Run under node using node-qunit
+
+```sh
+npm install -g qunit
+qunit -d qunit-once.js -c tests.js -t tests.js
+```
+
 ## Related
 
 [Run QUnit module setup once](http://bahmutov.calepin.co/run-qunit-module-setup-once.html),
@@ -42,7 +93,7 @@ QUnit.module('Example', {
 
 ## Small print
 
-Author: Gleb Bahmutov &copy; 2013
+Author: Gleb Bahmutov &copy; 2013 @bahmutov
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 

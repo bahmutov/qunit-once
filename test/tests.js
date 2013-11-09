@@ -115,3 +115,25 @@
     count += 1;
   });
 }());
+
+(function example() {
+  var counter = 0;
+
+  QUnit.module('README example', {
+    setupOnce: function () {
+      counter = 1;
+    },
+    setup: function () {
+      counter += 1;
+    }
+  });
+
+  QUnit.test('first', function () {
+    QUnit.equal(counter, 2, 'setupOnce followed by setup');
+    counter = 0;
+  });
+
+  QUnit.test('second', function () {
+    QUnit.equal(counter, 1, 'first test followed by setup');
+  });
+}());
