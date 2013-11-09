@@ -16,7 +16,8 @@
     "grunt-node-qunit": "~2.0.2",
     "time-grunt": "~0.2.0",
     "grunt-npm2bower-sync": "0.0.2",
-    "grunt-nice-package": "~0.1.5"
+    "grunt-nice-package": "~0.1.5",
+    "grunt-parallel": "~0.3.1"
   },
   "scripts": {
     "test": "grunt"

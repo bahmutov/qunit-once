@@ -30,13 +30,22 @@ module.exports = function (grunt) {
 
     'nice-package': {
       all: {}
+    },
+
+    parallel: {
+      test: {
+        options: {
+          grunt: true
+        },
+        tasks: ['qunit', 'node-qunit']
+      }
     }
   });
 
   var plugins = module.require('matchdep').filterDev('grunt-*');
   plugins.forEach(grunt.loadNpmTasks);
 
-  grunt.registerTask('test', ['node-qunit', 'qunit']);
+  grunt.registerTask('test', ['parallel:test']);
   grunt.registerTask('default', ['deps-ok', 'nice-package', 'sync',
     'jshint', 'complexity', 'test']);
 };
