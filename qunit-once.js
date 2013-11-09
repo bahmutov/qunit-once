@@ -5,6 +5,9 @@
   QUnit.module = function (name, config) {
 
     (function addSetupOnce() {
+      if (typeof config !== 'object') {
+        return;
+      }
 
       if (typeof config.setupOnce === 'function') {
         var _setupOnceRan = false;
@@ -28,6 +31,10 @@
 
       function isLastTestInModule() {
         return QUnit.config.queue.length === 1;
+      }
+
+      if (typeof config !== 'object') {
+        return;
       }
 
       if (typeof config.teardownOnce === 'function') {

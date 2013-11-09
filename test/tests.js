@@ -1,3 +1,11 @@
+(function sanityTestModuleWithoutConfig() {
+  QUnit.module('no module config');
+
+  QUnit.test('basic', 1, function () {
+    QUnit.ok(true, 'everything is fine');
+  });
+}());
+
 (function teardownOnceTest() {
   var count = 0;
 
