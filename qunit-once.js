@@ -20,7 +20,7 @@
     }
 
     (function addSetupOnce() {
-      if (Array.isArray(QUnit.supports) &&
+      if (QUnit.supports &&
         QUnit.supports.setupOnce) {
         return;
       }
@@ -45,7 +45,7 @@
 
     (function addTeardownOnce() {
 
-      if (Array.isArray(QUnit.supports) &&
+      if (QUnit.supports &&
         QUnit.supports.teardownOnce) {
         return;
       }
