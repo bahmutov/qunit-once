@@ -1,10 +1,29 @@
-(function (QUnit) {
+/* jshint -W117:false */
+(function (QUnit, env) {
+  if (env.__quit_once_initialized) {
+    return;
+  }
+  env.__quit_once_initialized = true;
+
+  if (typeof QUnit !== 'object') {
+    throw new Error('undefined QUnit object');
+  }
 
   var _module = QUnit.module;
+  if (typeof _module !== 'function') {
+    throw new Error('QUnit.module should be a function');
+  }
 
   QUnit.module = function (name, config) {
+    if (typeof config !== 'object') {
+      return;
+    }
 
     (function addSetupOnce() {
+      if (QUnit.supports &&
+        QUnit.supports.setupOnce) {
+        return;
+      }
 
       if (typeof config.setupOnce === 'function') {
         var _setupOnceRan = false;
@@ -26,8 +45,18 @@
 
     (function addTeardownOnce() {
 
+      if (QUnit.supports &&
+        QUnit.supports.teardownOnce) {
+        return;
+      }
+
       function isLastTestInModule() {
-        return QUnit.config.queue.length === 1;
+        if (QUnit.config && Array.isArray(QUnit.config.queue)) {
+          return QUnit.config.queue.length === 1;
+        } else {
+          // we cannot determine if the test is the last one in this module
+          return false;
+        }
       }
 
       if (typeof config.teardownOnce === 'function') {
@@ -48,5 +77,5 @@
 
     _module.call(QUnit, name, config);
   };
-}(QUnit));
+}(QUnit, typeof global === 'object' ? global : window));
 
