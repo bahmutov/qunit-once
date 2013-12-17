@@ -39,6 +39,20 @@ module.exports = function (grunt) {
         },
         tasks: ['qunit', 'node-qunit']
       }
+    },
+
+    'gh-pages': {
+      options: {
+        base: '.'
+      },
+      src: [
+        'index.html',
+        'README.md',
+        'prismjs/prism.css',
+        'prismjs/prism.js',
+        'qunit-once.js',
+        'test/tests.js'
+      ]
     }
   });
 
