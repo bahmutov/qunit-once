@@ -2,9 +2,6 @@
   "name": "qunit-once",
   "main": "qunit-once.js",
   "version": "0.0.5",
-  "authors": [
-    "Gleb Bahmutov <gleb.bahmutov@gmail.com>"
-  ],
   "description": "QUnit plugin for running module setup and teardown once",
   "keywords": [
     "qunit",
