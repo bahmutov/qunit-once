@@ -23,7 +23,7 @@
   },
   "scripts": {
     "test": "grunt",
-    "gt": "node ./node_modules/gt qunit-once.js test/tests.js --output"
+    "gt": "node ./node_modules/gt qunit-once.js test/*.js --output"
   },
   "pre-commit": [
     "grunt",
