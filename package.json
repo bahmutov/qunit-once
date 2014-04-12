@@ -1,30 +1,42 @@
 {
   "name": "qunit-once",
-  "version": "0.1.0",
   "description": "QUnit plugin for running module setup and teardown once",
-  "main": "qunit-once.js",
+  "version": "0.1.0",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/bahmutov/qunit-once/issues"
+  },
+  "contributors": [],
   "dependencies": {},
   "devDependencies": {
-    "pre-git": "0.0.14",
-    "grunt-complexity": "~0.1.4",
-    "matchdep": "~0.3.0",
-    "grunt": "~0.4.2",
+    "grunt": "^0.4.4",
     "grunt-bump": "0.0.13",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-qunit": "~0.3.0",
-    "grunt-deps-ok": "~0.1.7",
+    "grunt-complexity": "^0.1.51",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-qunit": "^0.4.0",
+    "grunt-deps-ok": "^0.1.8",
+    "grunt-gh-pages": "^0.9.1",
+    "grunt-nice-package": "~0.4.0",
     "grunt-node-qunit": "~2.0.2",
-    "time-grunt": "~0.2.5",
     "grunt-npm2bower-sync": "~0.3.0",
-    "grunt-nice-package": "~0.1.5",
     "grunt-parallel": "~0.3.1",
-    "gt": "~0.8.21",
-    "grunt-gh-pages": "~0.9.0"
+    "gt": "^0.8.36",
+    "matchdep": "~0.3.0",
+    "pre-git": "0.0.15",
+    "time-grunt": "^0.3.1"
   },
-  "scripts": {
-    "test": "grunt",
-    "gt": "node ./node_modules/gt qunit-once.js test/*.js --output"
+  "engines": {
+    "node": "> 0.8"
   },
+  "homepage": "https://github.com/bahmutov/qunit-once",
+  "keywords": [
+    "test",
+    "qunit",
+    "plugin",
+    "once"
+  ],
+  "license": "MIT",
+  "main": "qunit-once.js",
   "pre-commit": [
     "grunt",
     "npm run gt"
@@ -38,16 +50,8 @@
     "type": "git",
     "url": "https://github.com/bahmutov/qunit-once.git"
   },
-  "homepage": "https://github.com/bahmutov/qunit-once",
-  "keywords": [
-    "test",
-    "qunit",
-    "plugin",
-    "once"
-  ],
-  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/bahmutov/qunit-once/issues"
+  "scripts": {
+    "test": "grunt",
+    "gt": "node ./node_modules/gt qunit-once.js test/*.js --output"
   }
 }

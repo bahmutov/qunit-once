@@ -32,10 +32,6 @@ module.exports = function (grunt) {
       }
     },
 
-    'nice-package': {
-      all: {}
-    },
-
     parallel: {
       test: {
         options: {
