@@ -70,8 +70,25 @@
 
           if (isLastTestInModule()) {
             config.teardownOnce();
+            config.teardownOnceRan = true;
           }
         };
+
+        // if multiple modules are used, the latest qunit
+        // puts everything into single queue. Figure out if
+        // current module is done
+        QUnit.moduleDone(function (details) {
+          // console.log('from', QUnit.config.currentModule);
+          // console.log('module done', details);
+
+          if (details.name === name) {
+            if (!config.teardownOnceRan) {
+              // console.log('running module teardown once');
+              config.teardownOnce();
+              config.teardownOnceRan = true;
+            }
+          }
+        });
       }
     }());
 

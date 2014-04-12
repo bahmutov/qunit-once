@@ -102,6 +102,7 @@
     },
     teardownOnce: function () {
       console.assert(count === 102, 'wrong count in teardownOnce', count);
+      count = 150;
     }
   });
 
@@ -114,6 +115,14 @@
     assert.equal(count, 101);
     count += 1;
   });
+
+  if (typeof QUnit.done === 'function') {
+    QUnit.done(function () {
+      if (count !== 150) {
+        throw new Error('Seems teardownOnce has not run');
+      }
+    });
+  }
 }());
 
 (function example() {
