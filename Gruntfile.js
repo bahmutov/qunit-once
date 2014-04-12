@@ -51,7 +51,7 @@ module.exports = function (grunt) {
         'prismjs/prism.css',
         'prismjs/prism.js',
         'qunit-once.js',
-        'test/tests.js'
+        'test/*.js'
       ]
     }
   });
