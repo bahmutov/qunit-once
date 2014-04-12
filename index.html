@@ -32,10 +32,16 @@
 
   <!-- include qunit first, then qunit-once, then tests -->
   <script src="http://code.jquery.com/qunit/qunit-1.12.0.js"></script>
+  <script>
+    // to simplify unit testing
+    QUnit.config.reorder = false;
+  </script>
+
   <script src="qunit-once.js"></script>
   <!-- second include to test multiple initialization guard -->
   <script src="qunit-once.js"></script>
 
+  <script src="test/test-one-module.js"></script>
   <script src="test/tests.js"></script>
   <script src="test/test-two-modules.js"></script>
   <script src="prismjs/prism.js"></script>

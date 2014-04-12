@@ -24,7 +24,11 @@ module.exports = function (grunt) {
       all: {
         deps: './qunit-once.js',
         code: './test/tests.js',
-        tests: ['./test/tests.js', './test/test-two-modules.js']
+        tests: [
+          './test/tests.js',
+          './test/test-one-module.js',
+          './test/test-two-modules.js'
+        ]
       }
     },
 
