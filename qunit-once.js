@@ -16,7 +16,7 @@
 
   QUnit.module = function (name, config) {
     if (typeof config !== 'object') {
-      return;
+      return _module.call(QUnit, name, config);
     }
 
     (function addSetupOnce() {
