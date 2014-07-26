@@ -1,7 +1,7 @@
 {
   "name": "qunit-once",
   "description": "QUnit plugin for running module setup and teardown once",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": {
     "url": "https://github.com/bahmutov/qunit-once/issues"
@@ -40,11 +40,6 @@
   "pre-commit": [
     "grunt",
     "npm run gt"
-  ],
-  "pre-push": [
-    "rm -rf node_modules",
-    "npm install",
-    "grunt"
   ],
   "repository": {
     "type": "git",
